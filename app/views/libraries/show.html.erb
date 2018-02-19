@@ -1,0 +1,15 @@
+<% library = Library.find_by(id: params["id"]) %>
+
+<div class="row">
+  <div class="col-sm-6">
+    <h1><%= library.name %></h1>
+  </div>
+</div>
+<div class="row">
+
+  <div class="col-sm-6">
+    <%= image_tag library.photo_url, :class => "img-fluid" %>
+  </div>
+
+  <!-- add google map of the library here -->
+</div>

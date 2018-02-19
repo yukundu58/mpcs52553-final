@@ -1,0 +1,19 @@
+<h1>Add a Library</h1>
+
+<div class="row">
+  <div class="col-sm-4">
+
+    <%= form_tag "/libraries" do %>
+
+      <p>Name: <input name="name" type="text" autofocus class="form-control"></p>
+      <p>Address: <input name="address" type="text" class="form-control"></p>
+      <p>Photo_URL: <input name="photo_url" type="text" class="form-control"></p>
+      <p>Description: <input name="description" type="text" class="form-control"></p>
+      <p>room_number: <input name="room_number" type="integer" class="form-control"></p>
+
+      <button class="btn btn-primary">Add Library</button>
+
+    <% end %>
+
+  </div>
+</div>

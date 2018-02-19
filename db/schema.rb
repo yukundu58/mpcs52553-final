@@ -12,15 +12,35 @@
 
 ActiveRecord::Schema.define(version: 0) do
 
-  create_table "books", force: :cascade do |t|
-    t.text "title"
-    t.integer "author_id"
-    t.text "summary"
-    t.integer "price"
-    t.boolean "hardcover", default: false
+  create_table "libraries", force: :cascade do |t|
+    t.string "name"
+    t.text "address"
+    t.text "photo_url"
+    t.text "description"
+    t.integer "room_number"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.index ["author_id"], name: "index_books_on_author_id"
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.string "user_name"
+    t.string "library_name"
+    t.string "date"
+    t.string "time"
+    t.boolean "is_valid", default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.boolean "is_admin", default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string "password"
   end
 
 end

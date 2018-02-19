@@ -1,3 +1,26 @@
+Library
+  name: string
+  address: text
+  photo_url: text
+  description: text
+  room_number: integer
+
+User
+  username: string
+  password: string
+  first_name: string
+  last_name: string
+  email: string
+  is_admin: boolean(false)
+
+Reservation
+  user_name: string
+  library_name: string
+  date: string
+  time: string
+  is_valid: boolean(false)
+
+
 # This file allows you to specify your domain model
 # in .yml format.  Use `rails db:migrate` to apply your
 # specification to your development database.
