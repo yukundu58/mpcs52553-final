@@ -1,0 +1,20 @@
+<h1>Sign Up</h1>
+
+<div class="row">
+  <div class="col-sm-4">
+
+    <%= form_tag "/users" do %>
+
+      <p>Username: <input name="username" type="text" autofocus class="form-control"></p>
+      <p>Password: <input name="password" type="text" autofocus class="form-control"></p>
+      <p>First_name: <input name="first_name" type="text" autofocus class="form-control"></p>
+      <p>Last_name: <input name="last_name" type="text" autofocus class="form-control"></p>
+      <p>Email: <input name="email" type="text" autofocus class="form-control"></p>
+      <p>Admin_Code(optimal): <input name="admin_code" type="text" autofocus class="form-control"></p>
+
+      <button class="btn btn-primary">Got it!</button>
+
+    <% end %>
+
+  </div>
+</div>

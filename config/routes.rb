@@ -12,10 +12,17 @@ Rails.application.routes.draw do
   delete '/libraries/:id' => 'libraries#destroy'
 
   # User
+  get "/users" => "users#index"
+  get "/users/new" => 'users#new'
+  get "/users/edit" => 'users#edit'
+  post "/users" => 'users#create'
+  delete "/users/:id" => 'users#destroy'
+  patch "/users" => 'users#update'
 
   # Reservation
 
   # Sessions
+  get "/login" => "sessions#new"
   get "/sessions/new" => "sessions#new"
   post "/sessions" => "sessions#create"
   get "/logout" => "sessions#destroy"

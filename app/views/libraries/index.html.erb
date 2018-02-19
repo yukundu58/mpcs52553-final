@@ -10,25 +10,22 @@
 
           <div class="caption text-center">
             <h3>
-              <a href="/library/<%= library.id %>">
+              <a href="/libraries/<%= library.id %>">
                 <%= library.name %>
               </a>
             </h3>
             <p>
               <%= library.description %>
             </p>
-
+          <% if !(session["user_id"].blank?) and (User.find_by(id: session["user_id"]).is_admin == true) %>
             <p>
               <%= link_to "[Delete]", "/libraries/#{library.id}", method: "delete" %>
               <%= link_to "[Edit]", "/libraries/#{library.id}/edit" %>
             </p>
+          <% end %>
           </div>
       </div>
     <% end %>
-
-    <div class="caption text-center">
-      <%= link_to "Add A New Library", "/libraries/new" %>
-    </div>
 
   </div>
 </div>

@@ -1,8 +1,8 @@
 class SessionsController < ApplicationController
 
   def destroy
-    cookies.delete(:user_id)
-    redirect_to "/movies"
+    reset_session
+    redirect_to "/"
   end
 
 

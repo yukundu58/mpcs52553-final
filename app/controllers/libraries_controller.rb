@@ -4,7 +4,12 @@ class LibrariesController < ApplicationController
     @libraries = Library.all
   end
 
-  def show
+  def edit
+    if !(session["user_id"].blank?) and (User.find_by(id: session["user_id"]).is_admin == true)
+      render "edit"
+    else
+      redirect_to "/"
+    end
   end
 
   def update
@@ -19,8 +24,10 @@ class LibrariesController < ApplicationController
   end
 
   def destroy
-    library = Library.find_by(id: params["id"])
-    library.delete
+    if !(session["user_id"].blank?) and (User.find_by(id: session["user_id"]).is_admin == true)
+      library = Library.find_by(id: params["id"])
+      library.delete
+    end
     redirect_to "/"
   end
 

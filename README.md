@@ -10,3 +10,6 @@ So I want to build a room-book system for the teacher, staff and students in Uch
 There are three models: Library, User and Reservation.
 
 We also have a sign-in system and support two kinds of users: Administrator and non-administrator. The administrators could change add new libraries, edit the number of available rooms of each library and limit the right of book right for a specific user. The non-administrator could make reservation for the room of specific library.
+
+To get the access to edit and delete details of library, you should log in using administrator account (Username: yukun   Password: yukun), or you could sign up your
+own account via admin_code: 52553.
