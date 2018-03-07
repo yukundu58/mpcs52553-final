@@ -23,13 +23,16 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "reservations", force: :cascade do |t|
-    t.string "user_name"
-    t.string "library_name"
     t.string "date"
-    t.string "time"
-    t.boolean "is_valid", default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer "user_id"
+    t.integer "library_id"
+    t.boolean "canceled", default: false
+    t.string "start_time"
+    t.string "end_time"
+    t.index ["library_id"], name: "index_reservations_on_library_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -40,7 +43,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.boolean "is_admin", default: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string "password"
+    t.string "password_digest"
   end
 
 end

@@ -1,0 +1,82 @@
+<% canceled_reservations = User.find_by(username: @user.username).reservations.where(canceled: true).order('date desc, start_time desc') %>
+<div class="container">
+  <!-- upcoming reservations -->
+  <div class="row">
+    <div class="page-title">
+      <h1>
+          Upcoming Reservations
+      </h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Library</th>
+          <th>Date</th>
+          <th>Start time</th>
+          <th>End time</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% i = 1 %>
+        <% @reservations.each do |reservation| %>
+          <tr>
+            <% current_hour = '%02d' % Time.now.hour %>
+            <% if (reservation.date > Date.today.to_s) || (reservation.date == Date.today.to_s) && reservation.start_time[0..1] > current_hour %>
+              <td><%= i %></td>
+              <% i=i+1 %>
+              <td><%= reservation.library.name %></td>
+              <td><%= reservation.date %></td>
+              <td><%= reservation.start_time %></td>
+              <td><%= reservation.end_time %></td>
+              <td><%= link_to "Cancel", "/reservations/#{reservation.id}", method: "delete", class: "btn btn-xs btn-warning" %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+
+<!-- canceled reservations -->
+  <div class="row">
+    <div class="page-title">
+      <h1>
+          Canceled  Reservations
+      </h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Library</th>
+          <th>Date</th>
+          <th>Start Time</th>
+          <th>End Time</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% i = 1 %>
+        <% canceled_reservations.each do |reservation| %>
+          <tr>
+              <td><%= i %></td>
+              <% i=i+1 %>
+              <td><%= reservation.library.name %></td>
+              <td><%= reservation.date %></td>
+              <td><%= reservation.start_time %></td>
+              <td><%= reservation.end_time %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+</div>

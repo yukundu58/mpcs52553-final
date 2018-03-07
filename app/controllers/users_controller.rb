@@ -11,7 +11,13 @@ class UsersController < ApplicationController
       @user.last_name = params["last_name"]
       @user.email = params["email"]
       @user.save
-      redirect_to "/"
+      if @user.save
+        flash[:success] = "Update successfully"
+        redirect_to "/"
+      else
+        flash[:danger] = @user.errors.full_messages
+        redirect_to "/users/new"
+      end
     end
   end
 
@@ -23,6 +29,7 @@ class UsersController < ApplicationController
 
   def edit
     if session["user_id"].blank?
+      flash[:danger] = "Please Log in firstly"
       redirect_to "/login"
     else
       @user = User.find_by(id: session["user_id"])
@@ -41,6 +48,7 @@ class UsersController < ApplicationController
                   :first_name => params["first_name"], :last_name => params["last_name"],
                   :email => params["email"]
     end
+    flash[:success] = "Sign Up successfully"
     redirect_to "/"
   end
 

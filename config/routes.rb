@@ -20,6 +20,13 @@ Rails.application.routes.draw do
   patch "/users" => 'users#update'
 
   # Reservation
+  get '/reservations' => 'reservations#index'
+  get '/reservations/canceled' => 'reservations#canceled'
+  get '/reservations/show_all' => 'reservations#show_all'
+  get '/reservations/:id/new_review' => 'reservations#new_review'
+  post '/reservations/:id/new_review' => 'reservations#create_review'
+  delete '/reservations/:id' => 'reservations#destroy'
+  post '/reservations' => 'reservations#create'
 
   # Sessions
   get "/login" => "sessions#new"

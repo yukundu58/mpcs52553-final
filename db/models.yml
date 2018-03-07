@@ -7,18 +7,21 @@ Library
 
 User
   username: string
-  password: string
+  password_digest: string
   first_name: string
   last_name: string
   email: string
   is_admin: boolean(false)
 
 Reservation
-  user_name: string
-  library_name: string
+  user_id: integer
+  library_id: integer
   date: string
-  time: string
-  is_valid: boolean(false)
+  start_time: string
+  end_time: string
+  canceled: boolean(false)
+
+
 
 
 # This file allows you to specify your domain model

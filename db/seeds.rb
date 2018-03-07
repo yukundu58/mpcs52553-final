@@ -30,7 +30,8 @@ libraries.each do |lib|
 end
 
 users = [["yukun", "yukun", "Yukun", "Du", "yukundu@uchicago.edu", true],
-         ["jiji", "jiji", "ZH", "Chen", "zhihuangc@uchicago.edu", false]]
+         ["jiji", "jiji", "ZH", "Chen", "zhihuangc@uchicago.edu", false],
+         ["y", "y", "Yang", "Chen", "yc@uchicago.edu", false]]
 
  User.delete_all
  users.each do |item|
@@ -43,3 +44,31 @@ users = [["yukun", "yukun", "Yukun", "Du", "yukundu@uchicago.edu", true],
    user.is_admin = item[5]
    user.save
  end
+
+# for reservation part
+reservations = [
+   ["11:00", "12:00", false],
+   ["12:00", "15:00", false],
+   ["16:00", "20:00", false],
+   ["21:00", "22:00", false],
+   ["14:00", "15:00", false]
+ ]
+
+Reservation.delete_all
+
+reservations.each do |entry|
+  reservation = Reservation.new
+  sample_user = User.sample
+  loop do
+    sample_user = User.sample
+    break unless sample_user.is_admin == true
+  end
+  reservation.user_id = sample_user.id
+  reservation.library_id = Library.sample.id
+  indexes = [1,2,3]
+  reservation.date = (Date.today + indexes.sample).to_s
+  reservation.start_time = entry[0]
+  reservation.end_time = entry[1]
+  reservation.canceled = entry[2]
+  reservation.save
+end

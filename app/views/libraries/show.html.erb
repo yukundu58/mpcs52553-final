@@ -11,5 +11,36 @@
     <%= image_tag library.photo_url, :class => "img-fluid" %>
   </div>
 
-  <!-- add google map of the library here -->
+  <div class="col-sm-8 well">
+  <div class="page-title">
+    <% unless !(session["user_id"].blank?) and (User.find_by(id: session["user_id"]).is_admin == true) %>
+      <!-- reservation form  -->
+      <%= form_tag "/reservations" do %>
+        <p>
+          Date: <%= date_field_tag "date", (Date.today+1).to_s %>
+        </p>
+
+        <% times = []%>
+        <% hours = 8..24 %>
+        <% hours.each do |hour|%>
+          <% times.push("#{hour}:00") %>
+        <% end %>
+        <p>
+          From
+          <%= select_tag "start_time", options_for_select(times[0..15])%>
+          To
+          <%= select_tag "end_time", options_for_select(times[1..16])%>
+        </p>
+
+        <%= hidden_field_tag "library_id", library.id %>
+
+        <p>
+          <%= submit_tag "Make A Reservation", class: "btn btn-lg btn-primary" %>
+        </p>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+
 </div>
