@@ -5,7 +5,7 @@
 
     <%= form_tag "/users", method: "patch" do %>
 
-      <p>Password: <input value="<%= @user.password %>" name="password" type="text" autofocus class="form-control"></p>
+      <p>Password: <input value="<%= @user.password %>" name="password" type="password" autofocus class="form-control"></p>
       <p>First_name: <input value="<%= @user.first_name %>"  name="first_name" type="text" class="form-control"></p>
       <p>Last_name: <input value="<%= @user.last_name %>" name="last_name" type="text" class="form-control"></p>
       <p>Email: <input value="<%= @user.email %>"  name="email" type="text" class="form-control"></p>
