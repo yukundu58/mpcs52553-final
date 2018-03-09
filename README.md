@@ -1,7 +1,7 @@
 # README
 
 # MPCS 52553 Final Project 
-# Live URL https://yukun-webdev.herokuapp.com/
+# Live URL   https://yukun-webdev.herokuapp.com/
 
 ## Reservation System of Uchicago Libraries
 
