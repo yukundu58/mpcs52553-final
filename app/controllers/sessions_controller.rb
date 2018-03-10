@@ -17,9 +17,11 @@ class SessionsController < ApplicationController
         redirect_to "/libraries"
       else
         redirect_to "/sessions/new"
+        flash[:danger] = "Please input correct password!"
       end
     else
       redirect_to "/sessions/new"
+      flash[:danger] = "Please input valid username!"
     end
   end
 
