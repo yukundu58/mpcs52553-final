@@ -43,3 +43,16 @@ There are some rules of reservation:
 - On each time spot, the number of reservations of a specific library cannot be more than its room number
 - One user cannot make two reservations having time overlap for one library
 - The end time of one reservation should be later than its beginning time
+
+## Security
+### user authorization
+- Administrator and Non-administrator have different access
+- Cannot see or update user profiles unless the user have signed up
+
+### user authentication
+- Using encrypted password
+- Using password type when inputing user password
+
+### security precautions
+- never use raw sql + string interpolation
+- include `protect_from_forgery with: :exception` in `ApplicationController`
