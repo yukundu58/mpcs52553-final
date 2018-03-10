@@ -1,7 +1,16 @@
 # README
 
 # MPCS 52553 Final Project 
+
+# Yukun Du
+
 # Live URL   https://yukun-webdev.herokuapp.com/
+
+# Set Up
+1. bundle install
+2. rails db:migrate db:seed
+3. rails server
+4. browse 'localhost:3000'
 
 ## Reservation System of Uchicago Libraries
 
