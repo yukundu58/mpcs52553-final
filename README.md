@@ -1,10 +1,20 @@
 # README
 
+<<<<<<< HEAD
 # MPCS 52553 Final Project of Yukun Du
 
 # Live URL   https://yukun-webdev.herokuapp.com/
 
 ## Set Up
+=======
+# MPCS 52553 Final Project 
+
+# Yukun Du
+
+# Live URL   https://yukun-webdev.herokuapp.com/
+
+# Set Up
+>>>>>>> 5c428cbde0b2daaf00118b3aedff3f2ce9ba8809
 1. bundle install
 2. rails db:migrate db:seed
 3. rails server
