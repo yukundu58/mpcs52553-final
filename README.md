@@ -23,7 +23,8 @@ The administrators could
 - change add new libraries
 - delete libraries
 - update libraries,
-- see all the reservations.
+- see all the reservations
+
 The non-administrator could
 - make reservations
 - cancel reservations
